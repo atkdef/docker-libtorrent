@@ -1,6 +1,7 @@
 FROM alpine:3.15 AS alpine
 FROM alpine AS build-base
 
+ARG LIBTORRENT_TAG
 ARG LIBTORRENT_VER
 
 RUN \
@@ -17,7 +18,7 @@ RUN \
 
 RUN \
     echo "**** clone source ****" && \
-    GIT_SSL_NO_VERIFY=0 git clone https://github.com/arvidn/libtorrent.git /tmp/libtorrent -b "v${LIBTORRENT_VER}" --depth 1
+    GIT_SSL_NO_VERIFY=0 git clone https://github.com/arvidn/libtorrent.git /tmp/libtorrent -b "${LIBTORRENT_TAG}" --depth 1
 
 RUN \
     echo "**** build libtorrent ****" && \

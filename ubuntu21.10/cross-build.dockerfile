@@ -1,10 +1,11 @@
 FROM ubuntu:21.10 AS ubuntu
 FROM ubuntu AS build-base
 
+ARG LIBTORRENT_TAG
 ARG LIBTORRENT_VER
 ARG DEBIAN_FRONTEND="noninteractive"
 
-ENV BOOST_VER=1.74.0 \
+ENV BOOST_VER=1.66.0 \
     BOOST_BUILD_PATH=/tmp/boost
 
 SHELL ["/bin/bash", "-euo", "pipefail", "-c"]
@@ -39,7 +40,7 @@ RUN \
 
 RUN \
     echo "**** clone source ****" && \
-    GIT_SSL_NO_VERIFY=0 git clone --recurse-submodules https://github.com/arvidn/libtorrent.git /tmp/libtorrent -b "v${LIBTORRENT_VER}" --depth 1
+    GIT_SSL_NO_VERIFY=0 git clone --recurse-submodules https://github.com/arvidn/libtorrent.git /tmp/libtorrent -b "${LIBTORRENT_TAG}" --depth 1
 
 # 
 # CROSS COMPILE

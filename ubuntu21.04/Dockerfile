@@ -4,6 +4,7 @@ FROM ubuntu:21.04 AS ubuntu
 # 
 FROM ubuntu AS test
 
+ARG LIBTORRENT_TAG
 ARG LIBTORRENT_VER
 ARG TARGETARCH
 ARG DEBIAN_FRONTEND="noninteractive"
