@@ -42,7 +42,7 @@ RUN \
     echo "**** clone source ****" && \
     GIT_SSL_NO_VERIFY=0 git clone https://github.com/arvidn/libtorrent.git /tmp/libtorrent -b "${LIBTORRENT_TAG}" && \
     cd /tmp/libtorrent && \
-    git cherry-pick --strategy=recursive -X theirs 8c188cd1fe9ed34b8008d6f34e24ec26218eadf6
+    git cherry-pick --strategy=recursive -X theirs -n 8c188cd1fe9ed34b8008d6f34e24ec26218eadf6
 
 # 
 # CROSS COMPILE
