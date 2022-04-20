@@ -5,7 +5,7 @@ ARG LIBTORRENT_TAG
 ARG LIBTORRENT_VER
 ARG DEBIAN_FRONTEND="noninteractive"
 
-ENV BOOST_VER=1.66.0 \
+ENV BOOST_VER=1.71.0 \
     BOOST_BUILD_PATH=/tmp/boost
 
 SHELL ["/bin/bash", "-euo", "pipefail", "-c"]
@@ -41,6 +41,7 @@ RUN \
 RUN \
     echo "**** clone source ****" && \
     GIT_SSL_NO_VERIFY=0 git clone --recurse-submodules https://github.com/arvidn/libtorrent.git /tmp/libtorrent -b "${LIBTORRENT_TAG}" --depth 1
+    git cherry-pick 8c188cd1fe9ed34b8008d6f34e24ec26218eadf6
 
 # 
 # CROSS COMPILE

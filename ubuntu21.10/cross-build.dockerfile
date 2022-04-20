@@ -5,7 +5,7 @@ ARG LIBTORRENT_TAG
 ARG LIBTORRENT_VER
 ARG DEBIAN_FRONTEND="noninteractive"
 
-ENV BOOST_VER=1.66.0 \
+ENV BOOST_VER=1.74.0 \
     BOOST_BUILD_PATH=/tmp/boost
 
 SHELL ["/bin/bash", "-euo", "pipefail", "-c"]
